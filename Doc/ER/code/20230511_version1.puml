@@ -1,0 +1,213 @@
+```uml
+@startuml
+
+' ================= # User =================
+entity User{
+    +id [PK]
+    --
+    school_id[FK]
+    major_id[FK]
+    rank_id [FK]
+    user_name [not null]
+    email [unique] [not null]
+    password [not null]
+    self_introduction
+    icon_image
+    twitter
+    facebook
+    instagram
+    is_active
+    is_staff
+    is_superuser
+    created_at
+    updated_at
+}
+
+' ----------------- ### Userの基本情報 -----------------
+entity School {
+    +id [PK]
+    --
+    name
+    created_at
+    updated_at
+}
+
+entity User_School{
+    +id [PK]
+    --
+    user_id[FK]
+    school_id[FK]
+}
+
+entity Major {
+    +id [PK]
+    --
+    name
+    created_at
+    updated_at
+}
+
+entity User_Major{
+    +id [PK]
+    --
+    user_id[FK]
+    major_id[FK]
+}
+
+' ----------------- ### User関係の機能を実装するための -----------------
+
+' お気に入りのフレーズ機能実装のためのテーブル
+entity FavoritePhrases{
+    +id [PK]
+    --
+    user_id[FK]
+    phrase [not null]
+    quotation_source
+    created_at
+    updated_at
+}
+
+' カレンダーヒートマップ機能実装のためのテーブル
+entity WroteHistory{
+    +id [PK]
+    --
+    user_id[FK]
+    created_at
+    updated_at
+}
+
+' コメント機能実装のためのテーブル
+entity Comment{
+    +id [PK]
+    --
+    post_id[FK]
+    body
+    created_at
+    updated_at
+}
+
+' いいね機能実装のためのテーブル
+entity Like{
+    +id [PK]
+    --
+    post_id[FK]
+    user_id[FK]
+    created_at
+    updated_at
+}
+
+' 可視化時にゲーム性を持たせる機能を実装するためのテーブル
+entity Rank {
+    +id [PK]
+    --
+    name
+    ' NOTE:順位（ランクの高さなど表すためのもの）
+    ' HACK:もっといい名前があるはず
+    rank_level
+    created_at
+    updated_at
+}
+
+
+' ======================= # Book👇 =======================
+
+entity User_Book{
+    +id [PK]
+    --
+    user_id[FK]
+    book_id[FK]
+}
+
+entity Book {
+    +id [PK]
+    --
+    title [not null]
+    author_id[FK]
+    publisher_id[FK]
+    book_tag_id1[FK]
+    book_tag_id2[FK]
+    book_tag_id3[FK]
+    book_tag_id4[FK]
+    price
+    image
+    created_at
+    updated_at
+}
+
+' ----------------- ### Book関係の基本情報 -----------------
+entity Book_Author{
+    +id [PK]
+    --
+    book_id[FK]
+    author_id[FK]
+}
+
+entity Author{
+    +id [PK]
+    --
+    name
+    created_at
+    updated_at
+}
+
+entity Book_Publisher{
+    +id [PK]
+    --
+    book_id[FK]
+    publisher_id[FK]
+}
+
+entity Publisher{
+    +id [PK]
+    --
+    name
+    created_at
+    updated_at
+}
+
+' ----------------- ### Book関係の機能を実装するための -----------------
+' タグ検索機能実装のためのテーブル
+entity BookTag{
+    +id [PK]
+    --
+    book_id[FK]
+    name
+    created_at
+    updated_at
+}
+
+' ======================= # Post =======================
+entity Post{
+    +id [PK]
+    --
+    user_id[FK]
+    book_id[FK]
+    title [not null]
+    body
+    created_at
+    updated_at
+}
+
+' ======================= # リレーションの定義👇 =======================
+User ||--o{ User_Book
+User_Book }o--|| Book
+Book ||--o{ BookTag
+Book ||--|| Post
+Book ||--o{ Book_Author
+Book_Author }o--|| Author
+Book ||--o{ Book_Publisher
+Book_Publisher }o--|| Publisher
+User ||--o{ Post
+Post ||--o{ Comment
+Post ||--o{ Like
+User ||--o{ WroteHistory
+User ||--o{ FavoritePhrases
+User ||--o{ Rank
+User ||--o{ User_School
+School ||--o{ User_School
+User ||--o{ User_Major
+Major ||--o{ User_Major
+Like }o--|| User
+
+@enduml
+```
