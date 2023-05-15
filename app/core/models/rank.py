@@ -1,17 +1,14 @@
 from django.db import models
 
 from django.conf import settings
-from core.models import ReadBook
 
-class Post(models.Model):
-    
+class Rank(models.Model):
     class Meta:
-        db_table = 'posts'
+        db_table = 'rank'
         app_label = "core"
-        
-    book_id = models.ForeignKey(ReadBook, on_delete=models.CASCADE)
+    
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    content = models.TextField()
+    name = models.CharField(max_length=200)
+    rank_level = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
