@@ -1,17 +1,16 @@
 from django.db import models
 
+from core.models import Post
 from django.conf import settings
-from core.models import ReadBook
 
-class Post(models.Model):
+class PostComment(models.Model):
     
     class Meta:
-        db_table = 'posts'
+        db_table = 'post_comments'
         app_label = "core"
-        
-    book_id = models.ForeignKey(ReadBook, on_delete=models.CASCADE)
+    
+    post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    content = models.TextField()
+    comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

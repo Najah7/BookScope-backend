@@ -1,17 +1,15 @@
 from django.db import models
 
 from django.conf import settings
-from core.models import ReadBook
 
-class Post(models.Model):
+class ReadBook(models.Model):
     
     class Meta:
-        db_table = 'posts'
+        db_table = 'read_books'
         app_label = "core"
-        
-    book_id = models.ForeignKey(ReadBook, on_delete=models.CASCADE)
+    
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    content = models.TextField()
+    book_id = models.IntegerField()
+    read_at = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
