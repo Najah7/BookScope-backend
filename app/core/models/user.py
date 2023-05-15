@@ -31,12 +31,13 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
     
-class User(AbstractBaseUser, PermissionsMixin):
+class CustomUser(AbstractBaseUser, PermissionsMixin):
     """Custom user model that supports using email instead of username"""
-    school_id = models.CharField(max_length=255, unique=True)
-    major_id = models.CharField(max_length=255, unique=True)
-    rank_id = models.CharField(max_length=255, unique=True)
-    role_id = models.CharField(max_length=255, unique=True)
+    
+    class Meta:
+        db_table = 'user'
+        app_label = "core"
+    
     email = models.EmailField(max_length=255, unique=True, null=False) # unique=True is a validator
     user_name = models.CharField(max_length=255)
     password = models.CharField(max_length=255, null=False, blank=False)
@@ -57,4 +58,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def __str__(self):
         return f"name: {self.user_name} email: {self.email}"
-
