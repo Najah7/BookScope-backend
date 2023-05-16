@@ -19,7 +19,3 @@ admin.site.register(models.Publisher)
 admin.site.register(models.Post)
 admin.site.register(models.PostComment)
 admin.site.register(models.PostLike)
-
-
-
-

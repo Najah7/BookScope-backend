@@ -2,12 +2,12 @@ from django.db import models
 
 from django.conf import settings
 
+
 class School(models.Model):
-    
     class Meta:
-        db_table = 'school'
+        db_table = "school"
         app_label = "core"
-    
+
     user_id = models.ManyToManyField(settings.AUTH_USER_MODEL)
     name = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
