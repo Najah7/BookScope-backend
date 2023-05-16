@@ -13,8 +13,3 @@ from core.models.read_book import ReadBook
 from core.models.post import Post
 from core.models.post_comment import PostComment
 from core.models.post_like import PostLike
-
-
-
-
-
