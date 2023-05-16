@@ -26,8 +26,9 @@ RUN python -m venv /py && \
     # pythonのパッケージをインストール
     /py/bin/pip install -r /tmp/requirements.txt && \
     # dev用のパッケージをインストール
-    if [ $DEV = "true" ]; \
-        then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
+    if [ $DEV = "true" ]; then \
+    apk add --update --no-cache graphviz graphviz-dev pkgconfig && \
+    /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     # 後処理（もう使わないものを削除）
     rm -rf /tmp && \
