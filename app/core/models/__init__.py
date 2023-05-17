@@ -4,7 +4,7 @@ from core.models.favorite_phrase_like import FavoritePhraseLike
 from core.models.major import Major
 from core.models.rank import Rank
 from core.models.school import School
-from core.models.wrote_history import WroteHistory
+from app.core.models.login_history import LoginHistory
 from core.models.book import Book
 from core.models.author import Author
 from core.models.book_tag import BookTag
