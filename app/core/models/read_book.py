@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-from core.models.book import Book
+from core.models import Book
 
 
 class ReadBook(models.Model):
