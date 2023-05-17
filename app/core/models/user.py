@@ -43,13 +43,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         max_length=255, unique=True, null=False
     )  # unique=True is a validator
-    user_name = models.CharField(max_length=255)
+    user_name = models.CharField(max_length=255, default="no user name")
     password = models.CharField(max_length=255, null=False, blank=False)
     self_introduction = models.TextField(max_length=1000, blank=True, null=True)
     icon = models.ImageField(upload_to="user_icon", blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
-    twitter = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
     facebook = models.URLField(blank=True, null=True)
+    linkedin = models.URLField(blank=True, null=True)
     is_active = models.BooleanField(
         default=True
     )  # automatically created by PermissionsMixin
