@@ -30,11 +30,11 @@ Status: 200 OK
     "user_id": "user_id",
     "name": "name",
     "email": "email",
-    "icon": "icon_url",
-    "twitter": "twitter_url",
-    "facebook": "facebook_url",
-    "instagram": "instagram_url",
-    "linedin": "linedin_url",
+    "icon_url": "icon_url",
+    "twitter_url": "twitter_url",
+    "facebook_url": "facebook_url",
+    "instagram_url": "instagram_url",
+    "linedin_url": "linedin_url",
     "school": "school",
     "Major": "Major",
     "rank": "rank",
@@ -68,11 +68,11 @@ Status: 200 OK
 | name       |      | string | ユーザ名 |
 | email      |      | string | メールアドレス |
 | password   |      | string | パスワード |
-| icon       |      | string（url） | アイコン |
-| twitter    |      | string（url） | Twitter |
-| facebook   |      | string（url） | Facebook |
-| instagram  |      | string（url） | Instagram |
-| linedin    |      | string（url） | Linedin |
+| icon_url       |      | string（url） | アイコン |
+| twitter_url    |      | string（url） | TwitterのURL |
+| facebook_url   |      | string（url） | FacebookのURL |
+| instagram_url  |      | string（url） | InstagramのURL |
+| linedin_url    |      | string（url） | LinedinのURL |
 
 ### Response 
 
@@ -83,11 +83,11 @@ Status: 200 OK
   "user_id": "user_id",
   "name": "name",
   "email": "email",
-  "icon": "icon_url",
-  "twitter": "twitter_url",
-  "facebook": "facebook_url",
-  "instagram": "instagram_url",
-  "linedin": "linedin_url"
+  "icon_url": "icon_url",
+  "twitter_url": "twitter_url",
+  "facebook_url": "facebook_url",
+  "instagram_url": "instagram_url",
+  "linedin_url": "linedin_url"
 }
 ```
 
@@ -111,7 +111,7 @@ Status: 200 OK
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
-| name       | ○    | string | ユーザ名 |
+| name       | △    | string | ユーザ名 |
 | email      | ○    | string | メールアドレス |
 | password   | ○    | string | パスワード |
 

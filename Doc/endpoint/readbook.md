@@ -19,6 +19,9 @@
 |:-----------|:----:|:---|:-----|
 | token      | ○    | string | トークン |
 | user_id    |      | string | ユーザID |
+| book_id    |      | string | 本ID |
+| isbn       |      | string | ISBNコード |
+| search     |      | string | 検索ワード |
 
 ## Response
 
@@ -33,7 +36,7 @@ Status: 200 OK
         "author": "author",
         "publisher": "publisher",
         "price" : "price",
-        "image": "image_url",
+        "image_url": "image_url",
         "tags" : [
             {
             "tag_id": "tag_id",
@@ -52,7 +55,7 @@ Status: 200 OK
         "author": "author",
         "publisher": "publisher",
         "price" : "price",
-        "image": "image_url",
+        "image_url": "image_url",
         "tags" : [
         {
             "tag_id": "tag_id",
@@ -76,6 +79,11 @@ Status: 200 OK
 | token      | ○    | string | トークン |
 | isbn       | △    | string | ISBNコード |
 | book_id    | △    | string | 本ID |
+| title      | △    | string | タイトル |
+| author     | △    | string | 著者 |
+| publisher  | △    | string | 出版社 |
+| image_url      | △    | string | 画像URL |
+| tags       |      | array | タグ |
 
 ※△はどれか１つは必須
 
@@ -91,7 +99,7 @@ Status: 201 Created
     "author": "author",
     "publisher": "publisher",
     "price" : "price",
-    "image": "image_url",
+    "image_url": "image_url",
     "tags" : [
         {
         "tag_id": "tag_id",
@@ -104,6 +112,49 @@ Status: 201 Created
     ]
 }
 ```
+
+- ### PUT /readbook
+
+| パラメータ | 必須 | 型 | 説明 |
+|:-----------|:----:|:---|:-----|
+| token      | ○    | string | トークン |
+| read_book_id    | △    | string | 本ID |
+| isbn       | △    | string | ISBNコード |
+| book_id    |      | string | 本ID |
+| title      |      | string | タイトル |
+| author     |      | string | 著者 |
+| publisher  |      | string | 出版社 |
+| image_url      |      | string | 画像URL |
+| tags       |      | array | タグ |
+
+※△はどれか１つは必須
+
+## Response
+
+Status: 200 OK
+
+```json
+{
+    "book_id": "book_id",
+    "title": "title",
+    "isbn": "isbn",
+    "author": "author",
+    "publisher": "publisher",
+    "price" : "price",
+    "image_url": "image_url",
+    "tags" : [
+        {
+        "tag_id": "tag_id",
+        "tag": "tag"
+        },
+        {
+        "tag_id": "tag_id",
+        "tag": "tag"
+        }
+    ]
+}
+```
+
 
 - ### DELETE /readbook
 

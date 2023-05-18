@@ -40,7 +40,7 @@ Status: 200 OK
   "author": "author",
   "publisher": "publisher",
   "price" : "price",
-  "image": "image_url",
+  "image_url": "image_url",
   "tags" : [
     {
       "tag_id": "tag_id",
@@ -64,7 +64,7 @@ Status: 200 OK
 | author     |      | string | 著者 |
 | publisher  |      | string | 出版社 |
 | tag        |      | string | タグ |
-| image      |      | string（url） | 画像 |
+| image_url      |      | string（url） | 画像 |
 
 ## Response
 
@@ -78,7 +78,7 @@ Status: 201 Created
   "author": "author",
   "publisher": "publisher",
   "price" : "price",
-  "image": "image_url",
+  "image_url": "image_url",
   "tags" : [
     {
       "tag_id": "tag_id",
@@ -103,7 +103,7 @@ Status: 201 Created
 | author     |      | string | 著者 |
 | publisher  |      | string | 出版社 |
 | tag        |      | string | タグ |
-| image      |      | string（url） | 画像 |
+| image_url      |      | string（url） | 画像 |
 
 ※どちらか１つは必須
 
@@ -119,7 +119,7 @@ Status: 200 OK
   "author": "author",
   "publisher": "publisher",
   "price" : "price",
-  "image": "image_url",
+  "image_url": "image_url",
   "tags" : [
     {
       "tag_id": "tag_id",
