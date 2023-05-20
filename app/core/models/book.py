@@ -13,16 +13,16 @@ class BookModelManager(DjangoModels.Manager):
     # ===================== 一般的なクエリ =====================
     # NOTE:一応、_bookをつけることで、デフォルトのやつと区別している。名前を変更するかも
 
-    def create_book_with_tags(self, title, isbn, price, image, book_tags):
-        book = self.model(title=title, isbn=isbn, price=price, image=image)
+    def create_book_with_tags(self, title, isbn, price, image_url, book_tags):
+        book = self.model(title=title, isbn=isbn, price=price, image_url=image_url)
         book.save()
         for tag in book_tags:
             book.tags.add(tag)
         return book
 
-    def update_book_with_tags(self, book, title, isbn, price, image, book_tags):
+    def update_book_with_tags(self, book, title, isbn, price, image_url, book_tags):
         CoreModels.Book.objects.filter(id=book.id).update(
-            title=title, isbn=isbn, price=price, image=image
+            title=title, isbn=isbn, price=price, image_url=image_url
         )
         book.tags.clear()
         for tag in book_tags:
@@ -41,6 +41,9 @@ class BookModelManager(DjangoModels.Manager):
 
     def search_books_by_tag(self, tag):
         return self.filter(tags__name__contains=tag).all()
+    
+    def get_by_isbn(self, isbn):
+        return self.filter(isbn=isbn).first()
 
     # TODO: ソート系のマネージャを実装
 
@@ -58,7 +61,7 @@ class Book(DjangoModels.Model):
 
     title = DjangoModels.CharField(max_length=200)
     isbn = DjangoModels.CharField(max_length=200)
-    image = DjangoModels.ImageField(upload_to="images/", null=True, blank=True)
+    image_url = DjangoModels.URLField(max_length=200, default="https://default.example.com/default.jpg""")
     price = DjangoModels.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = DjangoModels.DateTimeField(auto_now_add=True)
     updated_at = DjangoModels.DateTimeField(auto_now=True)
@@ -66,4 +69,4 @@ class Book(DjangoModels.Model):
     objects = BookModelManager()
 
     def __str__(self):
-        return f"title: {self.title}  isbn: {self.isbn} image_path: {self.image}"
+        return f"title: {self.title}  isbn: {self.isbn} image_path: {self.image_url}"

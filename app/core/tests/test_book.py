@@ -14,9 +14,9 @@ def create_book(params):
     title = params['title']
     isbn = params['isbn']
     price = params['price']
-    image = params['image']
+    image_url = params['image_url']
     book_tags = params['book_tags']
-    book = CoreModels.Book.objects.create_book_with_tags(title, isbn, price, image, book_tags)
+    book = CoreModels.Book.objects.create_book_with_tags(title, isbn, price, image_url, book_tags)
     return book
 
 def update_book(book, params):
@@ -24,9 +24,9 @@ def update_book(book, params):
     title = params['title']
     isbn = params['isbn']
     price = params['price']
-    image = params['image']
+    image_url = params['image_url']
     book_tags = params['book_tags']
-    CoreModels.Book.objects.update_book_with_tags(book, title, isbn, price, image, book_tags)
+    CoreModels.Book.objects.update_book_with_tags(book, title, isbn, price, image_url, book_tags)
     
 
 
