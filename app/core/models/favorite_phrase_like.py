@@ -9,10 +9,16 @@ class FavoritePhraseLike(models.Model):
         db_table = "favorite_phrase_likes"
         app_label = "core"
 
-    favorite_phrase_id = models.ForeignKey(
-        FavoritePhrase, on_delete=models.CASCADE, related_name="favorite_phrase_likes"
+    favorite_phrase = models.ForeignKey(
+        FavoritePhrase,
+        on_delete=models.CASCADE,
+        related_name="favorite_phrase_likes"
     )
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="favorite_phrase_likes",)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
