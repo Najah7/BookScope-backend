@@ -1,16 +1,16 @@
-from django.db import models
+from django.db import models as DjangoModels
 
-from core.models import Book
+from core import models as CoreModels
 
 
-class BookTag(models.Model):
+class BookTag(DjangoModels.Model):
     class Meta:
         db_table = "book_tags"
         app_label = "core"
 
-    book_id = models.ManyToManyField(Book, related_name="book_tags")
-    name = models.CharField(max_length=200)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    name = DjangoModels.CharField(max_length=200)
+    created_at = DjangoModels.DateTimeField(auto_now_add=True)
+    updated_at = DjangoModels.DateTimeField(auto_now=True)
+
     def __str__(self):
-        return f"tag: {self.name} book_id: {self.book_id}"
+        return f"tag: {self.name}"

@@ -1,14 +1,14 @@
 from django.db import models
 
-from core.models import Post
+from core import models as CoreModels
+
 
 class PostTag(models.Model):
     class Meta:
         db_table = "post_tags"
         app_label = "core"
 
-    post_id = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post_tags")
-    tag = models.CharField(max_length=200)
+    name = models.CharField(max_length=255, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
