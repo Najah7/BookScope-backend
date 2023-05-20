@@ -8,6 +8,7 @@ class PostLike(models.Model):
         db_table = "post_likes"
         app_label = "core"
 
+    like = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -43,10 +43,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     # NOTE: Userから参照することが多いので、User側で定義した（個人的に参照をよくする方で明示したほうがいいと思う。）
     post_like = DjangoModels.ManyToManyField(
-        CoreModels.Post, related_name="post_like", blank=True
+        CoreModels.PostLike, related_name="post_like", blank=True
     )
     post_comment = DjangoModels.ManyToManyField(
-        CoreModels.Post, related_name="post_comment", blank=True
+        CoreModels.PostComment, related_name="post_comment", blank=True
     )
 
     # フィールド
