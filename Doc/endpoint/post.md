@@ -16,7 +16,7 @@
 | search     |   △   | string | 検索ワード |
 | book_name  |   △   | string | 本ID |
 | writer     |   △   | string | 投稿者 |
-| tag        |   △   | string | タグ |
+| tags        |   △   | array | タグ |
 | sort       |   △   | string | ソート順 |
 
 ## Response
@@ -39,10 +39,10 @@ Status: 200 OK
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
-| token      | ○    | string | トークン |
-| book_id    | ○    | string | 本ID |
+| post_id    |      | string | 投稿ID |
 | title      | ○    | string | タイトル |
 | content    | ○    | string | 内容 |
+| tags       |      | array | タグ |
 
 ## Response
 
@@ -62,7 +62,6 @@ Status: 200 OK
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
-| token      | ○    | string | トークン |
 | post_id    | ○    | string | 投稿ID |
 | book_id    |      | string | 本ID |3
 | title      |      | string | タイトル |
@@ -86,20 +85,13 @@ Status: 200 OK
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
-| token      | ○    | string | トークン |
 | post_id    | ○    | string | 投稿ID |
 
 ## Response
 
 ```json
 {
-  "post_id": "post_id",
-  "book_id": "book_id",
-  "user_id": "user_id",
-  "title": "title",
-  "content": "content",
-  "created_at": "created_at",
-  "updated_at": "updated_at",
+  "message" : "success to delete post"
 }
 ```
 
