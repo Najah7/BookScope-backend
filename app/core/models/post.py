@@ -58,7 +58,7 @@ class Post(DjangoModels.Model):
     read_book = DjangoModels.ForeignKey(
         CoreModels.ReadBook, on_delete=DjangoModels.CASCADE, related_name="posts"
     )
-    user = DjangoModels.ForeignKey(
+    author = DjangoModels.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=DjangoModels.CASCADE, related_name="posts"
     )
 

@@ -10,8 +10,8 @@ from core import models as CoreModels
 class ReadBookModelManager(DjangoModels.Manager):
     # ===================　検索系 ===================
 
-    def search_read_books_by_book_name(self, user_id, book_name):
-        return self.filter(user_id=user_id, book__title__contains=book_name).all()
+    def search_read_books_by_title(self, user_id, title):
+        return self.filter(user_id=user_id, book__title__contains=title).all()
 
     def search_read_books_by_author_name(self, user_id, author_name):
         return self.filter(
@@ -25,9 +25,9 @@ class ReadBookModelManager(DjangoModels.Manager):
     def get_a_read_book(self, user_id, book_id):
         return self.objects.filter(user_id=user_id, book_id=book_id).first()
 
-    def get_a_read_book_by_book_name(self, user_id, book_name):
+    def get_a_read_book_by_title(self, user_id, title):
         return self.objects.filter(
-            user_id=user_id, book__title__contains=book_name
+            user_id=user_id, book__title__contains=title
         ).first()
 
 

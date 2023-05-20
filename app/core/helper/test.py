@@ -36,9 +36,9 @@ def create_sample_post_tags(num_tag, prefix='test tag'):
     return tags
 
 
-def create_sample_book(title='test title', isbn='978-4-00-310101-1', price=1000, image='https://example.com/test.jpg', tags=create_sample_book_tags(2)):
+def create_sample_book(title='test title', isbn='978-4-00-310101-1', price=1000, image_url='https://example.com/test.jpg', tags=create_sample_book_tags(2)):
     """Create and return a new book."""
-    book = CoreModels.Book.objects.create_book_with_tags(title, isbn, price, image, tags)
+    book = CoreModels.Book.objects.create_book_with_tags(title, isbn, price, image_url, tags)
     return book
 
 def create_read_book(user, book):
@@ -56,7 +56,7 @@ def sample_data_for_creating_book():
         'title': 'test title',
         'isbn': '978-4-00-310101-1',
         'price': decimal.Decimal('1000.00'),
-        'image': 'https://example.com/test.jpg',
+        'image_url': 'https://example.com/test.jpg',
         'book_tags': create_sample_book_tags(2),
     }
     
@@ -65,7 +65,7 @@ def sample_data_for_updating_book2():
         'title': 'test title2',
         'isbn': '978-4-00-310101-2',
         'price': decimal.Decimal('2000.00'),
-        'image': 'https://example.com/test2.jpg',
+        'image_url': 'https://example.com/test2.jpg',
         'book_tags': create_sample_book_tags(2, 'test tag'),
     }
     
