@@ -19,8 +19,10 @@
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
-| user_id    |      | string | ユーザID |
 | book_id    |      | string | 本ID |
+| book_name      |      | string | タイトル |
+| author     |      | string | 著者 |
+| publisher  |      | string | 出版社 |
 | isbn       |      | string | ISBNコード |
 | search     |      | string | 検索ワード |
 
@@ -78,7 +80,6 @@ Status: 200 OK
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
 | isbn       | △    | string | ISBNコード |
-| book_id    | △    | string | 本ID |
 | title      | △    | string | タイトル |
 | author     | △    | string | 著者 |
 | publisher  | △    | string | 出版社 |
@@ -112,19 +113,6 @@ Status: 201 Created
     ]
 }
 ```
-
-- ### PUT /readbook
-
-| パラメータ | 必須 | 型 | 説明 |
-|:-----------|:----:|:---|:-----|
-| read_book_id    | △    | string | 本ID |
-| isbn       | △    | string | ISBNコード |
-| book_id    |      | string | 本ID |
-| title      |      | string | タイトル |
-| author     |      | string | 著者 |
-| publisher  |      | string | 出版社 |
-| image_url      |      | string | 画像URL |
-| tags       |      | array | タグ |
 
 ※△はどれか１つは必須
 
