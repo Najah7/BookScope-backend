@@ -5,9 +5,9 @@
 ## 目次
 - [概要](#概要)
 - [URL](#url)
-    - [GET /readbook](#get-readbook)
-    - [POST /readbook](#post-readbook)
-    - [DELETE /readbook](#delete-readbook)
+    - [GET /book](#get-book)
+    - [POST /book](#post-book)
+    - [DELETE /book](#delete-book)
 
 
 ## 概要
@@ -15,16 +15,16 @@
 
 ## URL
 
-- ### GET /readbook
+- ### GET /book
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
 | book_id    |      | string | 本ID |
-| book_name      |      | string | タイトル |
+| title      |      | string | タイトル |
 | author     |      | string | 著者 |
 | publisher  |      | string | 出版社 |
 | isbn       |      | string | ISBNコード |
-| search     |      | string | 検索ワード |
+| key_word     |      | string | 検索ワード |
 
 ## Response
 
@@ -75,7 +75,7 @@ Status: 200 OK
 }
 ```
 
-- ### POST /readbook
+- ### POST /book
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
@@ -143,7 +143,7 @@ Status: 200 OK
 ```
 
 
-- ### DELETE /readbook
+- ### DELETE /book
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|

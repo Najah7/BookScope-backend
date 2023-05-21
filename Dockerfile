@@ -7,6 +7,7 @@ ENV PYTHONUNBUFFERED 1
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY . /app
+COPY .env /app/.env
 
 WORKDIR /app
 
@@ -20,7 +21,7 @@ RUN python -m venv /py && \
     # pipのインストール
     /py/bin/pip install --upgrade pip && \
     # postgreSQL用の追加のパッケージ（apkはAlpine Linuxのpakage manager）
-    apk add --update --no-cache postgresql-client jpeg-dev && \
+    apk add --update --no-cache postgresql-client jpeg-dev zbar zbar-dev && \
     apk add --update --no-cache --virtual .tmp-build-deps zlib zlib-dev \
         build-base postgresql-dev musl-dev linux-headers && \
     # pythonのパッケージをインストール

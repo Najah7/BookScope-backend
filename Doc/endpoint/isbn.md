@@ -68,6 +68,7 @@
 ### Response
 ```json
 {
+    "book_id": "book_id",
     "image_url": "https://example.com/image.jpg"
 }
 ```
@@ -77,7 +78,11 @@
 ## パラメータ
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
-| isbn       | ○    | string | ISBNコード |
 | image      | ○    | file | 画像ファイル(バーコード) |
 
+### Request
+```json
+{
+    "isbn": "isbn",
+}
 
