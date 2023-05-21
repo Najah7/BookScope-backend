@@ -8,7 +8,7 @@ class School(models.Model):
         db_table = "school"
         app_label = "core"
 
-    user_id = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="school")
+    user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="school")
     name = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

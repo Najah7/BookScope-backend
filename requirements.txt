@@ -2,4 +2,6 @@ Django
 djangorestframework
 psycopg2
 Pillow
+requests
+pyzbar
 

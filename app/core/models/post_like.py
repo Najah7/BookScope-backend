@@ -1,7 +1,6 @@
 from django.db import models
 
 from django.conf import settings
-from core.models import Post
 
 
 class PostLike(models.Model):
@@ -9,8 +8,7 @@ class PostLike(models.Model):
         db_table = "post_likes"
         app_label = "core"
 
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="post_likes")
-    post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
+    like = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

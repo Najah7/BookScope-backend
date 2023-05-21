@@ -18,7 +18,6 @@
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
 | user_id    |      | string | ユーザID |
-| token      | ○    | string | トークン |
 
 ### Response
 
@@ -64,7 +63,6 @@ Status: 200 OK
 
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
-| token      | ○    | string | トークン |
 | name       |      | string | ユーザ名 |
 | email      |      | string | メールアドレス |
 | password   |      | string | パスワード |
@@ -93,9 +91,7 @@ Status: 200 OK
 
 - ### DELETE /user
 
-| パラメータ | 必須 | 型 | 説明 |
-|:-----------|:----:|:---|:-----|
-| token      | ○    | string | トークン |
+※tokenを元にユーザを削除する
 
 ### Response
 
