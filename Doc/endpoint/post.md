@@ -13,8 +13,8 @@
 | パラメータ | 必須 | 型 | 説明 |
 |:-----------|:----:|:---|:-----|
 | token      |   o   | string | トークン |
-| search     |   △   | string | 検索ワード |
-| book_name  |   △   | string | 本ID |
+| key_word     |   △   | string | 検索ワード |
+| title  |   △   | string | 本ID |
 | writer     |   △   | string | 投稿者 |
 | tags        |   △   | array | タグ |
 | sort       |   △   | string | ソート順 |
