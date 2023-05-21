@@ -2,6 +2,7 @@
 Book Model
 """
 
+
 from django.db import models as DjangoModels
 
 from core import models as CoreModels
@@ -33,6 +34,12 @@ class BookModelManager(DjangoModels.Manager):
     def search_books_by_title(self, title):
         return self.filter(title__contains=title).all()
 
+    def search_books_by_author(self, author):
+        return self.filter(authors__name__contains=author).all()
+    
+    def search_books_by_publisher(self, publisher):
+        return self.filter(publishers__name__contains=publisher).all()
+
     def search_books_under_price(self, price):
         return self.filter(price__lte=price).all()
 
@@ -60,7 +67,7 @@ class Book(DjangoModels.Model):
     tags = DjangoModels.ManyToManyField(CoreModels.BookTag, related_name="books")
 
     title = DjangoModels.CharField(max_length=200)
-    isbn = DjangoModels.CharField(max_length=200)
+    isbn = DjangoModels.CharField(max_length=200, null=True, blank=True)
     image_url = DjangoModels.URLField(max_length=200, default="https://default.example.com/default.jpg""")
     price = DjangoModels.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = DjangoModels.DateTimeField(auto_now_add=True)
